@@ -29,7 +29,6 @@ def generateList(filePath):
                     if not title_pattern.match(titleLine):
                         continue
                     titleLevel, titleContent = title_pattern.search(titleLine).groups()
-                    print title_pattern.search(titleLine).groups()
                     titleLevel = len(titleLevel)
                     if preTitleLevel:
                         if titleLevel > preTitleLevel:
@@ -49,6 +48,8 @@ def generateList(filePath):
 
                 for contentLine in bakFile:
                     newFile.write(contentLine)
+
+        os.remove(bakPath)
 
 
 
